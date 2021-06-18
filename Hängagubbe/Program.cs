@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Collections.Generic;
 
 //
+// Time-stamp: <2021-06-18 21:53:26 stefan>
 //     _______
 //     |     |
 //     o     |
@@ -12,7 +13,6 @@ using System.Collections.Generic;
 //    / \    |
 //
 //
-
 namespace hangmanspel
 {
     class Program
@@ -51,7 +51,7 @@ namespace hangmanspel
 	    Random slumptal = new Random();
 
 	    int indxValtOrd = slumptal.Next( ordlista.Length );
-	    Console.WriteLine('\t' + ordlista[indxValtOrd]);
+	    //Console.WriteLine('\t' + ordlista[indxValtOrd]);
 
 	    // int kvarvarandeFörsök=9; // om man räknar för den stackars streckgubben
 	    int kvarvarandeFörsök=10;
@@ -71,6 +71,9 @@ namespace hangmanspel
 	    Console.WriteLine('\t' + ordlista[indxValtOrd]);
 	}
 
+	/// <summary>
+	/// rekursiv version av spellogiken
+	/// </summary>
 	static bool Iteration( string hemligtOrd,
 			       int kvarvarandeFörsök,
 			       HashSet<char> bokstavsGissningar,
@@ -110,9 +113,9 @@ namespace hangmanspel
 	    }
 	}
 
-	//
-	// i utskriften ska för läsbarheten _ få ett mellanslag framför sig
-	//
+	///<summary>
+	///i utskriften ska för läsbarheten _ få ett mellanslag framför sig
+	///</summary>
 	static StringBuilder nuvarandeLäge( string hemligtOrd,
 					    HashSet<char> bokstavsGissningar)
 	{
