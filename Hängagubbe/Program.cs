@@ -95,11 +95,27 @@ namespace hangmanspel
 				StringBuilder felaktigaBokstavsgissningar)
 	{
 	    if (kvarvarandeFörsök > 0) {
-		// Console.Write( String.Format( "{0,3}", kvarvarandeFörsök));
-		// skrivUtNuvarandeLäge( hemligtOrd, bokstavsGissningar);
-		// Console.WriteLine( " {0}", felaktigaBokstavsgissningar);
 		Console.WriteLine( "{0} {1} {2}", String.Format( "{0,3}", kvarvarandeFörsök), nuvarandeLäge(hemligtOrd, bokstavsGissningar), felaktigaBokstavsgissningar);
-		return Iteration2( hemligtOrd, kvarvarandeFörsök-1, bokstavsGissningar, felaktigaBokstavsgissningar);
+
+		string svar = Console.ReadLine();
+		while (svar.Length==0) {
+		    string svar = Console.ReadLine();
+		}
+
+		if (svar.Length==1) { // en enda bokstav, finns den i det hemliga ordet ?
+		    if ( hemligtOrd.ToString().IndexOf(svar) == -1 ) { // bokstaven finns inte i det hemliga ordet
+			if ( felaktigaBokstavsgissningar. bokstavsGissningar.Contains(svar)) { // svarsförsöket är har redan varit uppe en gång
+			    Console.WriteLine("bokstaven {0} är redan med i uppräkningen av felaktiga", svar);
+			    return Iteration2( hemligtOrd, kvarvarandeFörsök, bokstavsGissningar, felaktigaBokstavsgissningar);
+			} else {
+			    felaktigaBokstavsgissningar.Append(svar);
+			    return Iteration2( hemligtOrd, kvarvarandeFörsök-1, bokstavsGissningar, felaktigaBokstavsgissningar);
+			}
+		    } else {
+		    }
+		} else {
+		    return Iteration2( hemligtOrd, kvarvarandeFörsök-1, bokstavsGissningar, felaktigaBokstavsgissningar);
+		}
 	    } else {
 		return false;
 	    }
@@ -118,17 +134,6 @@ namespace hangmanspel
 		}
 	    }
 	    return result;
-	}
-	static void skrivUtNuvarandeLäge( string hemligtOrd,
-					  HashSet<char> bokstavsGissningar)
-	{
-	    foreach (char bokstav in hemligtOrd) {
-		if ( bokstavsGissningar.Contains(bokstav)) {
-		    Console.Write( " {0}", bokstav);
-		} else {
-		    Console.Write( " {0}", '_');
-		}
-	    }
 	}
 
 	// static bool Iteration( string hemligtOrd,
