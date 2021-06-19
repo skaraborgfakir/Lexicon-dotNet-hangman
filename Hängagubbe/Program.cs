@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Collections.Generic;
 
 //
-// Time-stamp: <2021-06-18 21:53:26 stefan>
+// Time-stamp: <2021-06-19 16:38:23 stefan>
 //     _______
 //     |     |
 //     o     |
@@ -12,6 +12,27 @@ using System.Collections.Generic;
 //     |     |
 //    / \    |
 //
+//
+// alternativ ordbok: aspell -d sv  dump master|wc
+//   119591  119591 1302138
+// aspell -d sv  dump master|head -20
+// SJ
+// schahers
+// schahen
+// schaherna
+// schahernas
+// schahens
+// schaher
+// schah
+// schack
+// schaktmassor
+// själ
+// själars
+// själarna
+// själarnas
+//
+// aspell -d sv  dump master|grep ^a|wc
+//    7837    7837   87080
 //
 namespace hangmanspel
 {
