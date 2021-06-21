@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Collections.Generic;
 
 //
-// Time-stamp: <2021-06-19 16:38:23 stefan>
+// Time-stamp: <2021-06-21 10:02:57 stefan>
 //     _______
 //     |     |
 //     o     |
@@ -101,7 +101,7 @@ namespace hangmanspel
 			       StringBuilder felaktigaBokstavsgissningar)
 	{
 	    if (kvarvarandeFörsök > 0) {
-		Console.WriteLine( "{0} {1} {2}", String.Format( "{0,3}", kvarvarandeFörsök), nuvarandeLäge(hemligtOrd, bokstavsGissningar), felaktigaBokstavsgissningar);
+		Console.WriteLine( "antal försök: {0} {1}   felaktiga:{2}", String.Format( "{0,3}", kvarvarandeFörsök), nuvarandeLäge(hemligtOrd, bokstavsGissningar), felaktigaBokstavsgissningar);
 
 		string svar = Console.ReadLine();
 		while (svar.Length==0) {
