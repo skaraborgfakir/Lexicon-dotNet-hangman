@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Collections.Generic;
 
 //
-// Time-stamp: <2021-06-21 10:02:57 stefan>
+// Time-stamp: <2021-06-21 10:04:53 stefan>
 //     _______
 //     |     |
 //     o     |
@@ -107,7 +107,7 @@ namespace hangmanspel
 		while (svar.Length==0) {
 		    svar = Console.ReadLine();
 		}
-		svar=svar.ToLower(); // gör om alltid om bokstaven till gemen
+		svar=svar.ToLower(); // gör alltid om bokstaven till gemen
 
 		if (svar.Length==1) { // en enda bokstav, finns den i det hemliga ordet ?
 		    if ( hemligtOrd.ToString().IndexOf(svar) == -1 ) { // bokstaven finns inte i det hemliga ordet
